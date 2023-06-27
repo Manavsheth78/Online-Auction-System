@@ -1,11 +1,15 @@
-const Mongoose = require('mongoose');
+const mongoose = require("mongoose")
+const connectDB = async ()=>{
+    try {
+        const conn = await mongoose.connect('mongodb+srv://admin:IdX4wMIoWTUKHv03@cluster0.gzqcnq3.mongodb.net/?retryWrites=true&w=majority', {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        })
+        console.log('DB!!!')
+    } catch (err){
+        console.error(err)
+        process.exit(1)
+    }
+}
 
-Mongoose.connect( 'mongodb+srv://Torvus:Aji1407MERN@cluster-1.bwhtr.mongodb.net/Auction_DB?retryWrites=true&w=majority', {
-    useNewUrlParser : true,
-    useUnifiedTopology: true
-});
-
-// C:\Users\Home\mongodb\bin\mongod.exe --dbpath=C:\Users\Home\mongodb-data
-// mongodb://127.0.0.1/auction-port
-// mongodb://127.0.0.1/task-manager-api
-// mongodb+srv://Torvus:Aji1407MERN@cluster-1.bwhtr.mongodb.net/Auction_DB?retryWrites=true&w=majority
+connectDB()

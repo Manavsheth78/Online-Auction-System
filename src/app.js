@@ -32,7 +32,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.get("/", auth, (req, res) => {
-  res.render('index', { isAuth: req.isAuth, type: req.decoded.type });
+  res.render('index', { isAuth: "false", type: "" });
+
 });
 
 app.get("/register", (req, res) => {
